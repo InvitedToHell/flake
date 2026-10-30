@@ -1,54 +1,76 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./networking/networks.nix
-      ./networking/caddy.nix
-      ./services/services-enabled.nix
-];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-  # Use the GRUB 2 boot loader.  
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device ="/dev/sda";
+    # Networking
+    ./networking/networks.nix
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    # Services
+    ./services/services-enabled.nix
+  ];
 
+  # Boot
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda";
+  };
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  # Locale
   time.timeZone = "Europe/Berlin";
 
-   console = {
-     font = "Lat2-Terminus16";
-     keyMap = "de-latin1";
-  #   useXkbConfig = true; # use xkb.options in tty.
-   };
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "de-latin1";
+  };
 
+  # User
   users.users.helly = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     initialPassword = "supermassivespassword";
-   };
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    initialPassword = "supermassivespassword";
+    openssh.authorizedKeys = {
+      keyFiles = [
+        ./ssh/caddy
+        ./ssh/netcup
+      ];
+      keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG+gTnIFuNXvOxcL/q1zeaVGKBgugByNW8X0Jtd02ho5 helly@hell"
+      ];
+    };
+  };
 
-   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     htop
-     btop
-     wget
-     neovim
-     git
-];
+  environment.systemPackages = with pkgs; [
+    vim
+    neovim
+    git
+    wget
+    htop
+    btop
+  ];
 
-  services.tailscale.enable = true;
-  services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = false;
+  services = {
+    tailscale.enable = true;
+
+    openssh = {
+      enable = true;
+      settings.PasswordAuthentication = false;
+    };
+  };
+
   virtualisation.podman.enable = true;
 
-  system.stateVersion = "26.05"; # Did you read the comment?
-  users.users."helly".openssh.authorizedKeys.keyFiles = [
-    ./ssh/caddy
-    ./ssh/netcup
-  ];
-  users.users."helly".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG+gTnIFuNXvOxcL/q1zeaVGKBgugByNW8X0Jtd02ho5 helly@hell"
-  ];
+  system.stateVersion = "26.05";
 }

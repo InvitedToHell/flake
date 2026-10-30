@@ -1,18 +1,19 @@
-{ pkgs, config, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
+  # Shared import of the unstable channel (with unfree allowed)
   unstable = import inputs.unstable {
     system = pkgs.stdenv.hostPlatform.system;
-    config = {
-      allowUnfree = true;
-    };
+    config.allowUnfree = true;
   };
 in
 {
-  environment.systemPackages = [
-    unstable.beszel
-  ];
-
+  # Hub
   systemd.services.beszel-hub = {
     description = "Beszel Hub Server";
     wantedBy = [ "multi-user.target" ];
@@ -37,18 +38,22 @@ in
     home = "/var/lib/beszel";
     createHome = true;
   };
-  users.groups.beszel = {};
 
+  users.groups.beszel = { };
+
+  # Agent
   services.beszel.agent = {
     enable = true;
     package = unstable.beszel;
     environmentFile = "/etc/secret/beszel/key";
   };
 
-  services.caddy.virtualHosts = {
-    "beszel.pompomsoft.de".extraConfig = ''
-        reverse_proxy http://127.0.0.1:8090
-    '';
-  };
+  environment.systemPackages = [
+    unstable.beszel
+  ];
 
+  # Reverse proxy
+  services.caddy.virtualHosts."beszel.pompomsoft.de".extraConfig = ''
+    reverse_proxy http://127.0.0.1:8090
+  '';
 }
