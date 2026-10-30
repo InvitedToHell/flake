@@ -1,0 +1,89 @@
+{ pkgs, lib, ... }:
+
+{
+  services.caddy = {
+    enable = true;
+
+    virtualHosts = {
+      "auth.pompomsoft.de".extraConfig = ''
+        reverse_proxy http://127.0.0.1:3030
+      '';
+
+      "immich.pompomsoft.de".extraConfig = ''
+        reverse_proxy http://127.0.0.1:2283
+      '';
+
+      "beszel.pompomsoft.de".extraConfig = ''
+        reverse_proxy http://127.0.0.1:8090
+      '';
+
+      "iwannafuckmycomputer.pompomsoft.de".extraConfig = ''
+        handle /rest/* {
+          reverse_proxy 127.0.0.1:4533
+        }
+
+        handle /share/* {
+          reverse_proxy 127.0.0.1:4533
+        }
+
+        handle {
+          forward_auth 127.0.0.1:3030 {
+            uri /api/auth/caddy
+            copy_headers Remote-User Remote-Email Remote-Name
+          }
+          reverse_proxy 127.0.0.1:4533
+        }
+      '';
+
+      "search.pompomsoft.de".extraConfig = ''
+        forward_auth 127.0.0.1:3030 {
+          uri /api/auth/caddy
+          copy_headers Remote-User Remote-Email
+        }
+        reverse_proxy 127.0.0.1:4444
+      '';
+
+      "iwannafuckmy.computer".extraConfig = ''
+        request_body {
+          max_size 768MB
+        }
+
+        handle /.well-known/matrix/client {
+          header Content-Type application/json
+          header Access-Control-Allow-Origin *
+          header Cache-Control "public, max-age=86400"
+          respond `{"m.server":{"base_url":"https://iwannafuckmy.computer"},"org.matrix.msc3575.proxy":{"url":"https://iwannafuckmy.computer"}}`
+        }
+
+        handle /.well-known/matrix/server {
+          header Content-Type application/json
+          respond `{"m.server":"iwannafuckmy.computer:443"}`
+        }
+
+        handle {
+          reverse_proxy 127.0.0.1:6167 {
+            header_up Host {host}
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+          }
+        }
+      '';
+      "s.iwannafuckmy.computer".extraConfig = ''
+        reverse_proxy 127.0.0.1:6167
+      '';
+
+       "sable.iwannafuckmy.computer".extraConfig = ''
+        root * ${pkgs.runCommand "sable-web" {} ''
+          mkdir -p $out
+          tar -xzf ${pkgs.fetchurl {
+            url = "https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.0/sable-2.2.0-web.tar.gz";
+            sha256 = "sha256-V1G0tV5nsakTVyG3f2+dBSk3ABC9oYGdvnpqufN+5Q0=";
+          }} -C $out --strip-components=1
+        ''}
+        file_server
+        try_files {path} {path}/ /index.html
+      '';
+       };
+  };
+}
