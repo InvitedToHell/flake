@@ -51,6 +51,7 @@
         }
       ];
     };
+  };
 
   # Reverse proxy
   services.caddy.virtualHosts = {
