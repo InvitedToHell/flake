@@ -30,10 +30,13 @@
           to = 65535;
         }
       ];
+      allowedUDPPorts = [
+        41641
+      ];
       allowedUDPPortRanges = [
         {
-          from = 1;
-          to = 65535;
+          from = 50000;
+          to = 51000;
         }
       ];
     };
