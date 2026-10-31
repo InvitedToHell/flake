@@ -16,8 +16,15 @@ in
     keyFile = "/etc/secret/livekit/keys";
 
     settings = {
+      port = 7880;
+      bind_addresses = [ "127.0.0.1" ];
+      rtc = {
+        port_range_start = 50000;
+        port_range_end = 51000;
+        use_external_ip = true;
+        node_ip = "136.243.51.141";
+      };
       room.auto_create = false;
-      rtc.use_external_ip = true;
     };
   };
 
