@@ -1,0 +1,97 @@
+{{template "base/head" .}}
+<div role="main" aria-label="{{if .IsSigned}}{{ctx.Locale.Tr "dashboard"}}{{else}}{{ctx.Locale.Tr "home"}}{{end}}" class="page-content home">
+  <div class="tw-mb-8 tw-px-8">
+    <div class="center">
+      <div class="hero">
+        <img class="logo" width="136" height="136" src="{{AssetUrlPrefix}}/img/logo.svg" alt="{{ctx.Locale.Tr "logo"}}">
+        <h2 class="ui icon header title" style="font-style: italic; transform: translateY(-30px);">
+          <span id="title-anim" style="animation-delay: 0.143s;">i</span>
+          <span id="title-anim" style="animation-delay: 0.286s;">n</span>
+          <span id="title-anim" style="animation-delay: 0.429s;">v</span>
+          <span id="title-anim" style="animation-delay: 0.571s;">a</span>
+          <span id="title-anim" style="animation-delay: 0.714s;">l</span>
+          <span id="title-anim" style="animation-delay: 0.857s;">i</span>
+          <span id="title-anim" style="animation-delay: 1.0s;">d</span>
+        </h2>
+        <!---<h2>{{ctx.Locale.Tr "startpage.app_desc"}}</h2>--->
+        <h3 style="transform: translateY(-30px)">invite-only forge instance</h3>
+      </div>
+      <div class="hero-cards">
+        <div class="hero-cards-card">
+          <h2 class="hero-cards-card-title">Private</h2>
+          <h3>inval1d.cc is accessible for friends, acquaintances and entities to
+            collaborate on projects together. Collaborators may or may not know each other. We just wanna have some fun.
+          </h3>
+        </div>
+        <div class="hero-cards-card">
+          <h2 class="hero-cards-card-title">Inclusive</h2>
+          <h3>We operate world-wide and work with different entities from everywhere. It doesn't matter where you're
+            from or how much you can do, we just create... for the better or worse.</h3>
+        </div>
+        <div class="hero-cards-card">
+          <h2 class="hero-cards-card-title">Uhhhmm</h2>
+          <h3>Uhh so we uhm do stuff with things and uhh the things do... something! Somehow it works and we're not
+            really sure how... but urm it works so... yeagh! :3</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<style>
+  @keyframes float {
+    from {
+      transform: translateY(0.0em);
+    }
+
+    to {
+      transform: translateY(0.1em);
+    }
+  }
+
+  #title-anim {
+    display: inline-block;
+    animation: 1.0s ease-in-out float infinite alternate;
+  }
+
+  .hero {
+    background-image: url("/assets/img/home-header.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.5em;
+    height: 340px;
+  }
+
+  .hero-cards {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    font-size: 1.375rem;
+    padding-inline: 1.5rem;
+    grid-auto-flow: row dense;
+    transform: translateY(-90px);
+  }
+
+  .hero-cards-card {
+    background-color: var(--color-secondary-alpha-20);
+    backdrop-filter: blur(2em);
+    max-width: 24em;
+    min-height: 100%;
+    height: fit-content;
+    margin: 0px 1.25em;
+    text-align: left;
+    padding: 1em;
+    border-radius: 0.5em;
+    border-color: var(--color-primary);
+    border-width: 1px;
+  }
+
+  @media only screen and (min-width: 767.98px) {
+    .hero-cards {
+      grid-auto-flow: column;
+    }
+  }
+</style>
+{{template "base/footer" .}}

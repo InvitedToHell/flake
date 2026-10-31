@@ -5,6 +5,7 @@
     ./beszel/beszel.nix
     ./degoog/degoog.nix
     ./fail2ban/fail2ban.nix
+    ./forgejo/forgejo.nix
     ./immich/immich.nix
     ./matrix/matrix.nix
     ./matrix/matrixrtc.nix

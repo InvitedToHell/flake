@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono&display=swap');
+@import "./theme-forgejo-auto.css";
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+html * {
+  font-size-adjust: ex-height 0.5;
+  font-kerning: normal !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400;
+  text-rendering: optimizeLegibility !important;
+  letter-spacing: -0.067em !important;
+  line-height: 1.0;
+}
+
+.page-content {
+  animation: fade 0.5s cubic-bezier(0.39, 0.58, 0.57, 1) !important;
+}
+
+* {
+  transition:
+    color 200ms ease-in,
+    background 200ms ease-in,
+    background-color 200ms ease-in,
+    border 200ms ease-in !important;
+}
+
+*:hover {
+  transition:
+    color 200ms ease-out,
+    background 200ms ease-out,
+    background-color 200ms ease-out,
+    border 200ms ease-out !important;
+}
+
+:root {
+  --fonts-override: "Atkinson Hyperlegible Mono", monospace !important;
+
+  --color-primary: hsla(0, 0%, 45%, 1.0) !important;
+  --color-primary-contrast: hsla(0, 0%, 15%, 1.0) !important;
+  --color-primary-dark-1: hsla(0, 0%, 35%, 1.0) !important;
+  --color-primary-dark-2: hsla(0, 0%, 40%, 1.0) !important;
+  --color-primary-dark-3: hsla(0, 0%, 45%, 1.0) !important;
+  --color-primary-dark-4: hsla(0, 0%, 50%, 1.0) !important;
+  --color-primary-dark-5: hsla(0, 0%, 55%, 1.0) !important;
+  --color-primary-dark-6: hsla(0, 0%, 65%, 1.0) !important;
+  --color-primary-dark-7: hsla(0, 0%, 75%, 1.0) !important;
+  --color-primary-light-1: hsla(0, 0%, 35%, 1.0) !important;
+  --color-primary-light-2: hsla(0, 0%, 32%, 1.0) !important;
+  --color-primary-light-3: hsla(0, 0%, 29%, 1.0) !important;
+  --color-primary-light-4: hsla(0, 0%, 26%, 1.0) !important;
+  --color-primary-light-5: hsla(0, 0%, 23%, 1.0) !important;
+  --color-primary-light-6: hsla(0, 0%, 20%, 1.0) !important;
+  --color-primary-light-7: hsla(0, 0%, 17%, 1.0) !important;
+  --color-primary-alpha-10: hsla(0, 0%, 45%, 0.1) !important;
+  --color-primary-alpha-20: hsla(0, 0%, 45%, 0.2) !important;
+  --color-primary-alpha-30: hsla(0, 0%, 45%, 0.3) !important;
+  --color-primary-alpha-40: hsla(0, 0%, 45%, 0.4) !important;
+  --color-primary-alpha-50: hsla(0, 0%, 45%, 0.5) !important;
+  --color-primary-alpha-60: hsla(0, 0%, 45%, 0.6) !important;
+  --color-primary-alpha-70: hsla(0, 0%, 45%, 0.7) !important;
+  --color-primary-alpha-80: hsla(0, 0%, 45%, 0.8) !important;
+  --color-primary-alpha-90: hsla(0, 0%, 45%, 0.9) !important;
+  --color-primary-hover: var(--color-primary-light-1) !important;
+  --color-primary-active: var(--color-primary-light-2) !important;
+
+  --color-secondary: hsla(0, 0%, 45%, 1.0) !important;
+  --color-secondary-dark-1: hsla(0, 0%, 35%, 1.0) !important;
+  --color-secondary-dark-2: hsla(0, 0%, 38%, 1.0) !important;
+  --color-secondary-dark-3: hsla(0, 0%, 41%, 1.0) !important;
+  --color-secondary-dark-4: hsla(0, 0%, 44%, 1.0) !important;
+  --color-secondary-dark-5: hsla(0, 0%, 47%, 1.0) !important;
+  --color-secondary-dark-6: hsla(0, 0%, 50%, 1.0) !important;
+  --color-secondary-dark-7: hsla(0, 0%, 53%, 1.0) !important;
+  --color-secondary-dark-8: hsla(0, 0%, 56%, 1.0) !important;
+  --color-secondary-dark-9: hsla(0, 0%, 59%, 1.0) !important;
+  --color-secondary-dark-10: hsla(0, 0%, 61%, 1.0) !important;
+  --color-secondary-dark-11: hsla(0, 0%, 64%, 1.0) !important;
+  --color-secondary-dark-12: hsla(0, 0%, 67%, 1.0) !important;
+  --color-secondary-dark-13: hsla(0, 0%, 70%, 1.0) !important;
+  --color-secondary-light-1: hsla(0, 0%, 35%, 1.0) !important;
+  --color-secondary-light-2: hsla(0, 0%, 30%, 1.0) !important;
+  --color-secondary-light-3: hsla(0, 0%, 25%, 1.0) !important;
+  --color-secondary-light-4: hsla(0, 0%, 20%, 1.0) !important;
+  --color-secondary-alpha-10: hsla(0, 0%, 45%, 0.1) !important;
+  --color-secondary-alpha-20: hsla(0, 0%, 45%, 0.2) !important;
+  --color-secondary-alpha-30: hsla(0, 0%, 45%, 0.3) !important;
+  --color-secondary-alpha-40: hsla(0, 0%, 45%, 0.4) !important;
+  --color-secondary-alpha-50: hsla(0, 0%, 45%, 0.5) !important;
+  --color-secondary-alpha-60: hsla(0, 0%, 45%, 0.6) !important;
+  --color-secondary-alpha-70: hsla(0, 0%, 45%, 0.7) !important;
+  --color-secondary-alpha-80: hsla(0, 0%, 45%, 0.8) !important;
+  --color-secondary-alpha-90: hsla(0, 0%, 45%, 0.9) !important;
+  --color-secondary-button: var(--color-secondary-dark-4) !important;
+  --color-secondary-hover: var(--color-secondary-dark-3) !important;
+  --color-secondary-active: var(--color-secondary-dark-2) !important;
+
+  --color-console-fg: #FFFFFFFF !important;
+  --color-console-fg-subtle: #FFFFFFFF !important;
+  --color-console-bg: #000000FF !important;
+  --color-console-border: #000000FF !important;
+  --color-console-hover-bg: #000000FF !important;
+  --color-console-active-bg: #000000FF !important;
+  --color-console-menu-bg: #000000FF !important;
+  --color-console-menu-border: #000000FF !important;
+
+  --color-red: #F38BA8FF !important;
+  --color-orange: #FAB387FF !important;
+  --color-yellow: #F9E2AFFF !important;
+  --color-olive: #739d70 !important;
+  --color-green: #A6E3A1FF !important;
+  --color-teal: #94E2D5FF !important;
+  --color-blue: #89B4FAFF !important;
+  --color-violet: #A162ECFF !important;
+  --color-purple: #CBA6F7FF !important;
+  --color-pink: #F5C2E7FF !important;
+  --color-brown: #93705BFF !important;
+  --color-black: #1B151EFF !important;
+
+  --color-red-light: var(--color-red) !important;
+  --color-orange-light: var(--color-orange) !important;
+  --color-yellow-light: var(--color-yellow) !important;
+  --color-olive-light: var(--color-olive) !important;
+  --color-green-light: var(--color-green) !important;
+  --color-teal-light: var(--color-teal) !important;
+  --color-blue-light: var(--color-blue) !important;
+  --color-violet-light: var(--color-violet) !important;
+  --color-purple-light: var(--color-purple) !important;
+  --color-pink-light: var(--color-pink) !important;
+  --color-brown-light: var(--color-brown) !important;
+  --color-black-light: var(--color-black) !important;
+
+  --color-red-dark-1: var(--color-red) !important;
+  --color-orange-dark-1: var(--color-orange) !important;
+  --color-yellow-dark-1: var(--color-yellow) !important;
+  --color-olive-dark-1: var(--color-olive) !important;
+  --color-green-dark-1: var(--color-green) !important;
+  --color-teal-dark-1: var(--color-teal) !important;
+  --color-blue-dark-1: var(--color-blue) !important;
+  --color-violet-dark-1: var(--color-violet) !important;
+  --color-purple-dark-1: var(--color-purple) !important;
+  --color-pink-dark-1: var(--color-pink) !important;
+  --color-brown-dark-1: var(--color-brown) !important;
+  --color-black-dark-1: var(--color-black) !important;
+
+  --color-red-dark-2: var(--color-red) !important;
+  --color-orange-dark-2: var(--color-orange) !important;
+  --color-yellow-dark-2: var(--color-yellow) !important;
+  --color-olive-dark-2: var(--color-olive) !important;
+  --color-green-dark-2: var(--color-green) !important;
+  --color-teal-dark-2: var(--color-teal) !important;
+  --color-blue-dark-2: var(--color-blue) !important;
+  --color-violet-dark-2: var(--color-violet) !important;
+  --color-purple-dark-2: var(--color-purple) !important;
+  --color-pink-dark-2: var(--color-pink) !important;
+  --color-brown-dark-2: var(--color-brown) !important;
+  --color-black-dark-2: var(--color-black) !important;
+
+  --color-ansi-black: var(--color-black) !important;
+  --color-ansi-white: var(--color-white) !important;
+  --color-ansi-red: var(--color-red) !important;
+  --color-ansi-yellow: var(--color-yellow) !important;
+  --color-ansi-green: var(--color-green) !important;
+  --color-ansi-blue: var(--color-blue) !important;
+  --color-ansi-magenta: var(--color-violet) !important;
+  --color-ansi-cyan: var(--color-teal) !important;
+
+  --color-ansi-bright-black: var(--color-black) !important;
+  --color-ansi-bright-white: var(--color-white) !important;
+  --color-ansi-bright-red: var(--color-red) !important;
+  --color-ansi-bright-yellow: var(--color-yellow) !important;
+  --color-ansi-bright-green: var(--color-green) !important;
+  --color-ansi-bright-blue: var(--color-blue) !important;
+  --color-ansi-bright-magenta: var(--color-violet) !important;
+  --color-ansi-bright-cyan: var(--color-teal) !important;
+
+  --color-grey: var(--color-black);
+  --color-grey-light: #828F99FF;
+  --color-gold: #B1983BFF;
+  --color-white: #FFFFFFFF;
+  --color-diff-removed-word-bg: #6F3333FF;
+  --color-diff-added-word-bg: #3C653CFF;
+  --color-diff-removed-row-bg: #3C2626FF;
+  --color-diff-moved-row-bg: #818044FF;
+  --color-diff-added-row-bg: #283E2DFF;
+  --color-diff-removed-row-border: #634343FF;
+  --color-diff-moved-row-border: #BCCA6FFF;
+  --color-diff-added-row-border: #314A37FF;
+  --color-diff-inactive: #22282DFF;
+  --color-error-border: #A04141FF;
+  --color-error-bg: #552222FF;
+  --color-error-bg-active: #774444FF;
+  --color-error-bg-hover: #663333FF;
+  --color-error-text: #F9CBCBFF;
+  --color-success-border: #458A57FF;
+  --color-success-bg: #284034FF;
+  --color-success-text: #6CC664FF;
+  --color-warning-border: #BB9D00FF;
+  --color-warning-bg: #3A3A30FF;
+  --color-warning-text: #FBBD08FF;
+  --color-info-border: #306090FF;
+  --color-info-bg: #26354CFF;
+  --color-info-text: #38A8E8FF;
+  --color-red-badge: #DB2828FF;
+  --color-red-badge-bg: #DB28281A;
+  --color-red-badge-hover-bg: #DB28284D;
+  --color-green-badge: #21BA45FF;
+  --color-green-badge-bg: #21BA451A;
+  --color-green-badge-hover-bg: #21BA454D;
+  --color-yellow-badge: #FBBD08FF;
+  --color-yellow-badge-bg: #FBBD081A;
+  --color-yellow-badge-hover-bg: #FBBD084D;
+  --color-orange-badge: #F2711CFF;
+  --color-orange-badge-bg: #F2711C1A;
+  --color-orange-badge-hover-bg: #F2711C4D;
+
+  --color-body: #000000FF !important;
+  --color-nav-bg: #000000FF !important;
+  --color-box-header: #000000FF !important;
+  --color-box-body: #000000FF !important;
+  --color-box-body-highlight: #000000FF !important;
+  --color-timeline: #000000FF !important;
+  --color-input-background: #000000FF !important;
+  --color-input-toggle-background: #000000FF !important;
+
+  --color-active: #000000FF !important;
+  --color-menu: #000000FF !important;
+  --color-card: #000000FF !important;
+  --fancy-card-bg: #000000FF !important;
+  --fancy-card-border: #000000FF !important;
+  --color-button: #000000FF !important;
+  --color-code-bg: #000000FF !important;
+  --color-secondary-bg: #000000FF !important;
+  --color-expand-button: #000000FF !important;
+  --color-secondary-nav-bg: #000000FF !important;
+
+  --color-icon-red: var(--color-red);
+  --color-icon-green: var(--color-green);
+  --color-icon-purple: var(--color-purple);
+
+  --color-text: #D1D5D8FF;
+  --color-text-dark: #F8F8F9FF;
+  --color-text-light: #BDC3C7FF;
+  --color-text-light-1: #A8AFB5FF;
+  --color-text-light-2: #929BA2FF;
+  --color-text-light-3: #7C8790FF;
+
+  --color-footer: var(--color-nav-bg);
+  --color-input-text: var(--color-text-dark);
+  --color-input-border: var(--color-secondary);
+  --color-input-border-hover: var(--color-secondary-dark-1);
+  --color-light: #00001728;
+  --color-light-mimic-enabled: rgba(0, 0, 0, calc(40 / 255 * 222 / 255 / var(--opacity-disabled)));
+  --color-light-border: #E8E8FF28;
+  --color-hover: #E8E8FF19;
+  --color-markup-table-row: #E8E8FF0F;
+  --color-markup-code-block: #E8E8FF12;
+  --color-markup-code-inline: #E8E8FF28;
+  --color-shadow: #00001758;
+  --color-placeholder-text: var(--color-text-light-3);
+  --color-editor-line-highlight: var(--color-primary-light-5);
+  --color-project-column-bg: var(--color-secondary-light-2);
+  --color-caret: var(--color-text);
+  --color-reaction-bg: #E8E8FF12;
+  --color-reaction-hover-bg: var(--color-primary-light-4);
+  --color-reaction-active-bg: var(--color-primary-light-5);
+  --color-tooltip-text: #FAFAFBFF;
+  --color-tooltip-bg: #000000F0;
+
+  --color-nav-hover-bg: var(--color-secondary-light-1);
+  --color-nav-text: var(--color-text);
+  --color-label-text: var(--color-text);
+  --color-label-bg: #73828E4B;
+  --color-label-hover-bg: #73828EA0;
+  --color-label-active-bg: #73828EFF;
+  --color-accent: var(--color-primary-light-1);
+  --color-small-accent: var(--color-primary-light-5);
+  --color-highlight-fg: #87651EFF;
+  --color-highlight-bg: #352C1CFF;
+  --color-overlay-backdrop: #000000C0;
+  --checkerboard-color-1: #313131FF;
+  --checkerboard-color-2: #212121FF;
+
+  --color-selection-bg: var(--color-primary-alpha-30) !important;
+  --color-selection-fg: inherit !important;
+
+  --grad-color1: hsl(343, 81%, 75%);
+  --grad-color2: hsl(41, 86%, 83%);
+  --grad-color3: hsl(232, 97%, 85%);
+}
