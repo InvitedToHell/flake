@@ -8,7 +8,7 @@
 let
   # Shared import of the unstable channel (with unfree allowed)
   unstable = import inputs.unstable {
-    system = pkgs.system;
+    system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
 in
