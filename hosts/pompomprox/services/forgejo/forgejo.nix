@@ -98,6 +98,10 @@
 
       oauth2_client = {
         ENABLE_AUTO_REGISTRATION = true;
+        OPENID_CONNECT_SCOPES = "email profile";
+        USERNAME = "preferred_username";
+        UPDATE_AVATAR = true;
+        ACCOUNT_LINKING = "auto";
       };
 
       other.SHOW_FOOTER_VERSION = false;
