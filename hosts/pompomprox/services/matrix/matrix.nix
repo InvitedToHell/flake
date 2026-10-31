@@ -43,15 +43,14 @@
       };
 
       trusted_servers = [ "matrix.org" ];
-    };
 
-    matrix_rtc.foci = [
-      {
-        type = "livekit";
-        livekit_service_url = "https://lk-jwt.call.iwannafuckmy.computer";
-      }
-    ];
-  };
+      matrix_rtc.foci = [
+        {
+          type = "livekit";
+          livekit_service_url = "https://lk-jwt.call.iwannafuckmy.computer";
+        }
+      ];
+    };
 
   # Reverse proxy
   services.caddy.virtualHosts = {
