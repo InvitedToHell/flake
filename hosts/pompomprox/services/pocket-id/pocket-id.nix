@@ -16,4 +16,8 @@
       PORT = 9000;
     };
   };
+
+  services.caddy.virtualHosts."auth.pompomsoft.de".extraConfig = ''
+    reverse_proxy 127.0.0.1:9000
+  '';
 }
