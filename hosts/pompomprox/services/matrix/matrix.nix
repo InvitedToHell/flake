@@ -43,16 +43,14 @@
       };
 
       trusted_servers = [ "matrix.org" ];
-    };
 
-    # MatrixRTC: advertise the LiveKit SFU (configured in ./matrixrtc.nix)
-    matrix_rtc.foci = [
-      {
-        type = "livekit";
-        livekit_service_url = "https://lk-jwt.call.iwannafuckmy.computer";
-      }
-    ];
-  };
+      matrix_rtc.foci = [
+        {
+          type = "livekit";
+          livekit_service_url = "https://lk-jwt.call.iwannafuckmy.computer";
+        }
+      ];
+    };
 
   # Reverse proxy
   services.caddy.virtualHosts = {
