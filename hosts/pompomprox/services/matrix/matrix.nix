@@ -22,7 +22,7 @@
           allow_federation = true;
           allow_check_password = false;
           new_user_displayname_suffix = " · ✨";
-          ip_lookup_strategy = 4;
+          ip_lookup_strategy = 1;
           force_migration = true;
 
           oauth = {
