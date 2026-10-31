@@ -1,14 +1,15 @@
-{...}:
+{ ... }:
+
 {
-imports = [
-    ./pocket-id/pocket-id.nix
-    ./immich/immich.nix
+  imports = [
     ./beszel/beszel.nix
-    ./navidrome/navidrome.nix
-    ./fail2ban/fail2ban.nix
-   # ./minecraft/minecraft.nix
-    ./tiny-auth/tiny-auth.nix
     ./degoog/degoog.nix
+    ./fail2ban/fail2ban.nix
+    ./immich/immich.nix
     ./matrix/matrix.nix
-];
+    ./navidrome/navidrome.nix
+    ./pocket-id/pocket-id.nix
+    ./tiny-auth/tiny-auth.nix
+    # ./minecraft/minecraft.nix
+  ];
 }
