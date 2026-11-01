@@ -71,12 +71,12 @@
       };
 
       server = {
-        ROOT_URL = "https://git.pompomsoft.de";
+        ROOT_URL = "https://git.iwannafuckmy.computer";
         DISABLE_SSH = false;
         PROTOCOL = "http";
         HTTP_ADDR = "127.0.0.1";
         HTTP_PORT = 3000;
-        DOMAIN = "git.pompomsoft.de";
+        DOMAIN = "git.iwannafuckmy.computer";
       };
 
       ui = {
@@ -125,7 +125,7 @@
     };
   };
 
-  services.caddy.virtualHosts."git.pompomsoft.de".extraConfig = ''
+  services.caddy.virtualHosts."git.iwannafuckmy.computer".extraConfig = ''
     reverse_proxy 127.0.0.1:3000
   '';
 }
