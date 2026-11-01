@@ -4,19 +4,19 @@
 @property --grad-color1 {
   syntax: '<color>';
   inherits: false;
-  initial-value: hsl(343, 81%, 75%);
+  initial-value: hsl(340, 82%, 75%);
 }
 
 @property --grad-color2 {
   syntax: '<color>';
   inherits: false;
-  initial-value: hsl(41, 86%, 83%);
+  initial-value: hsl(310, 80%, 82%);
 }
 
 @property --grad-color3 {
   syntax: '<color>';
   inherits: false;
-  initial-value: hsl(232, 97%, 85%);
+  initial-value: hsl(265, 92%, 80%);
 }
 
 
@@ -49,26 +49,26 @@
 @keyframes iridescent {
   0% {
     --grad-color1: #f38ba8;
-    --grad-color2: #f9e2af;
-    --grad-color3: #b4befe;
+    --grad-color2: #f5c2e7;
+    --grad-color3: #cba6f7;
   }
 
   33% {
-    --grad-color1: #a6e3a1;
-    --grad-color2: #f5c2e7;
-    --grad-color3: #f38ba8;
+    --grad-color1: #f5c2e7;
+    --grad-color2: #cba6f7;
+    --grad-color3: #b4befe;
   }
 
   66% {
-    --grad-color1: #b4befe;
-    --grad-color2: #89dceb;
-    --grad-color3: #f9e2af;
+    --grad-color1: #cba6f7;
+    --grad-color2: #b4befe;
+    --grad-color3: #f5c2e7;
   }
 
   100% {
     --grad-color1: #f38ba8;
-    --grad-color2: #f9e2af;
-    --grad-color3: #b4befe;
+    --grad-color2: #f5c2e7;
+    --grad-color3: #cba6f7;
   }
 }
 
@@ -325,9 +325,9 @@
   --color-selection-bg: var(--color-primary-alpha-30) !important;
   --color-selection-fg: inherit !important;
 
-  --grad-color1: hsl(343, 81%, 75%);
-  --grad-color2: hsl(41, 86%, 83%);
-  --grad-color3: hsl(232, 97%, 85%);
+  --grad-color1: hsl(340, 82%, 75%);
+  --grad-color2: hsl(310, 80%, 82%);
+  --grad-color3: hsl(265, 92%, 80%);
   animation: iridescent 3s linear infinite;
 }
 
