@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     degoog.url = "github:degoog-org/degoog";
+    nix-minecraft.url = "github:Infinidoge1337/nix-minecraft";
   };
 
   outputs =

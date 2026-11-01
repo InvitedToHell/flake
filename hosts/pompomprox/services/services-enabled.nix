@@ -11,6 +11,6 @@
     ./navidrome/navidrome.nix
     ./pocket-id/pocket-id.nix
     ./tiny-auth/tiny-auth.nix
-    # ./minecraft/minecraft.nix
+    ./minecraft/minecraft.nix
   ];
 }
