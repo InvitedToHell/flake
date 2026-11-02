@@ -6,6 +6,7 @@
 }:
 
 {
+  nixpkgs.config.allowUnfree = true;
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -59,6 +60,7 @@
     wget
     htop
     btop
+    tmux
   ];
 
   services = {

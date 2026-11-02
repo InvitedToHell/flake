@@ -5,14 +5,16 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     degoog.url = "github:degoog-org/degoog";
-    nix-minecraft.url = "github:Infinidoge1337/nix-minecraft";
-  };
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+ };
 
   outputs =
     {
       self,
       nixpkgs,
       degoog,
+      nix-minecraft,
       ...
     }@inputs:
     let
@@ -24,6 +26,11 @@
           modules = [
             degoog.nixosModules.default
             ./hosts/pompomprox/configuration.nix
+	    nix-minecraft.nixosModules.minecraft-servers
+	    {
+            nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+            }
+
           ];
         };
     in
