@@ -90,8 +90,8 @@
       root * ${pkgs.runCommand "sable-web" { } ''
         mkdir -p $out
         tar -xzf ${pkgs.fetchurl {
-          url = "https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.0/sable-2.2.0-web.tar.gz";
-          sha256 = "sha256-V1G0tV5nsakTVyG3f2+dBSk3ABC9oYGdvnpqufN+5Q0=";
+          url = "https://git.sable.moe/SableClient/sable-next/releases/download/v2.3.1/sable-2.3.1-web.tar.gz";
+          sha256 = "sha256-MtW/Z1875i8LYNiFOqYotVzGMEdQi92JS7ct88kebpo=";
         }} -C $out --strip-components=1
       ''}
       file_server
