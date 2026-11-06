@@ -12,13 +12,13 @@
       PORT = "4444";
       DEGOOG_PUBLIC_INSTANCE = false;
       DEGOOG_BIND_ADDRESS = "127.0.0.1";
-      DEGOOG_BASE_URL = "https://search.pompomsoft.de";
+      DEGOOG_BASE_URL = "https://search.${config.domain}";
       DEGOOG_DISTRUST_PROXY = false;
     };
   };
 
   # Reverse proxy
-  services.caddy.virtualHosts."search.pompomsoft.de".extraConfig = ''
+  services.caddy.virtualHosts."search.${config.domain}".extraConfig = ''
     forward_auth 127.0.0.1:3030 {
       uri /api/auth/caddy
       copy_headers Remote-User Remote-Email

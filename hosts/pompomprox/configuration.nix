@@ -13,6 +13,7 @@
 
     # Networking
     ./networking/networks.nix
+    ./networking/domains.nix
 
     # Services
     ./services/services-enabled.nix

@@ -53,7 +53,7 @@ in
   ];
 
   # Reverse proxy
-  services.caddy.virtualHosts."beszel.pompomsoft.de".extraConfig = ''
+  services.caddy.virtualHosts."beszel.${config.domain}".extraConfig = ''
     reverse_proxy http://127.0.0.1:8090
   '';
 }

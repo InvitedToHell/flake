@@ -50,7 +50,7 @@
   ];
 
   # Reverse proxy: Subsonic-API ohne Auth-Prompt, Rest hinter tinyauth
-  services.caddy.virtualHosts."iwannafuckmycomputer.pompomsoft.de".extraConfig = ''
+  services.caddy.virtualHosts."iwannafuckmycomputer.${config.domain}".extraConfig = ''
     handle /rest/* {
       reverse_proxy 127.0.0.1:4533
     }

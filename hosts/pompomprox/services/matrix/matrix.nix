@@ -11,7 +11,7 @@
     package = pkgs.matrix-continuwuity_latest;
 
     settings.global = {
-      server_name = "iwannafuckmy.computer";
+      server_name = "${config.matrixDomain}";
       port = [ 6167 ];
       address = [
         "::1"
@@ -30,7 +30,7 @@
       # PocketID (OIDC) authentication
       oauth.oidc = {
         enable = true;
-        discovery_url = "https://id.pompomsoft.de";
+        discovery_url = "https://id.${config.domain}";
         client_id = "continuwuity";
         client_secret_file = "/etc/secret/continuwuity/oidc_secret";
 
@@ -47,7 +47,7 @@
       matrix_rtc.foci = [
         {
           type = "livekit";
-          livekit_service_url = "https://lk-jwt.call.iwannafuckmy.computer";
+          livekit_service_url = "https://lk-jwt.call.${config.matrixDomain}";
         }
       ];
     };
@@ -55,7 +55,7 @@
 
   # Reverse proxy
   services.caddy.virtualHosts = {
-    "iwannafuckmy.computer".extraConfig = ''
+    "${config.matrixDomain}".extraConfig = ''
       request_body {
         max_size 768MB
       }
@@ -64,12 +64,12 @@
         header Content-Type application/json
         header Access-Control-Allow-Origin *
         header Cache-Control "public, max-age=86400"
-        respond `{"m.server":{"base_url":"https://iwannafuckmy.computer"},"org.matrix.msc4048.base_url":"https://iwannafuckmy.computer"}`
+        respond `{"m.server":{"base_url":"https://${config.matrixDomain}"},"org.matrix.msc4048.base_url":"https://${config.matrixDomain}"}`
       }
 
       handle /.well-known/matrix/server {
         header Content-Type application/json
-        respond `{"m.server":"iwannafuckmy.computer:443"}`
+        respond `{"m.server":"${config.matrixDomain}:443"}`
       }
 
       handle {
@@ -82,11 +82,11 @@
       }
     '';
 
-    "s.iwannafuckmy.computer".extraConfig = ''
+    "s.${config.matrixDomain}".extraConfig = ''
       reverse_proxy 127.0.0.1:6167
     '';
 
-    "sable.iwannafuckmy.computer".extraConfig = ''
+    "sable.${config.matrixDomain}".extraConfig = ''
       root * ${pkgs.runCommand "sable-web" { } ''
         mkdir -p $out
         tar -xzf ${pkgs.fetchurl {

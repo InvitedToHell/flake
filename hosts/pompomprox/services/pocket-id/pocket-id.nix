@@ -10,7 +10,7 @@
 
     settings = {
       # <https://pocket-id.org/docs/configuration/environment-variables>
-      APP_URL = "https://auth.pompomsoft.de";
+      APP_URL = "https://auth.${config.domain}";
       TRUST_PROXY = true;
       HOST = "127.0.0.1";
       PORT = 9000;

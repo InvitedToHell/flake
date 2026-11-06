@@ -36,7 +36,7 @@ in
   };
 
   # Reverse proxy
-  services.caddy.virtualHosts."immich.pompomsoft.de".extraConfig = ''
+  services.caddy.virtualHosts."immich.${config.domain}".extraConfig = ''
     reverse_proxy http://127.0.0.1:2283
   '';
 }
