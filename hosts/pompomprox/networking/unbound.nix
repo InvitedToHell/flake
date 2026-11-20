@@ -16,7 +16,6 @@ in
           "tailscale0"
         ];
 
-        do-ip6 = false;
         prefer-ip6 = false;
 
         num-threads = 2;
