@@ -12,7 +12,7 @@
 
     servers.fabric = 	{
       enable = true;
-      package = pkgs.fabricServers.fabric-26_2.override {
+      package = pkgs.fabricServers.fabric-26_3.override {
         loaderVersion = "0.20.1";
         jre_headless = pkgs.jdk25; 
       };
@@ -29,7 +29,7 @@
         white-list = true;
       };
 
-      symlinks."mods" = "/var/lib/minecraft/mods";
+      #symlinks."mods" = "/var/lib/minecraft/mods";
     };
   };
 

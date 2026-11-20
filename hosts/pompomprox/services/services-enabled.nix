@@ -12,5 +12,6 @@
     ./pocket-id/pocket-id.nix
     ./tiny-auth/tiny-auth.nix
     ./minecraft/minecraft.nix
+    ./pocket-id/pocket-id.nix
   ];
 }
