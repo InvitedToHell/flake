@@ -17,7 +17,7 @@
         "::1"
         "127.0.0.1"
       ];
-
+      max_request_size = 200000000;
       allow_public_room_directory_over_federation = true;
       allow_registration = false;
       allow_encryption = true;
@@ -90,8 +90,8 @@
       root * ${pkgs.runCommand "sable-web" { } ''
         mkdir -p $out
         tar -xzf ${pkgs.fetchurl {
-          url = "https://git.sable.moe/SableClient/sable-next/releases/download/v2.3.1/sable-2.3.1-web.tar.gz";
-          sha256 = "sha256-MtW/Z1875i8LYNiFOqYotVzGMEdQi92JS7ct88kebpo=";
+          url = "https://git.sable.moe/SableClient/sable-next/releases/download/v2.3.8/sable-2.3.8-web.tar.gz";
+          sha256 = "sha256-MOCd9SKSCzU4E6pyzk4rLNwt6n0qzcoZIstNWtB/vQc=";
         }} -C $out --strip-components=1
       ''}
       file_server
