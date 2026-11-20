@@ -15,11 +15,10 @@
       }
     ];
     defaultGateway = "136.243.51.129";
+    # Use the local unbound resolver (see unbound.nix).
     nameservers = [
-      "185.12.64.1"
-      "185.12.64.2"
-      "1.1.1.1"
-      "8.8.8.8"
+      "127.0.0.1"
+      "::1"
     ];
 
     firewall = {

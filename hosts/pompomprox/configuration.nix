@@ -14,6 +14,7 @@
     # Networking
     ./networking/networks.nix
     ./networking/domains.nix
+    ./networking/unbound.nix
 
     # Services
     ./services/services-enabled.nix
