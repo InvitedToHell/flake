@@ -26,7 +26,8 @@
       new_user_displayname_suffix = " · ✨";
       ip_lookup_strategy = 1;
       force_migration = true;
-
+      unauthenticated_request_ratelimit = 150; 
+      request_ip_source = "X-Forwarded-For";
       # PocketID (OIDC) authentication
       oauth.oidc = {
         enable = true;
