@@ -10,11 +10,10 @@
     ./matrix/matrixrtc.nix
     ./matrix/bridges/whatsapp.nix
     ./matrix/bridges/signal.nix
-
+    ./matrix/bridges/discord.nix
     ./navidrome/navidrome.nix
     ./pocket-id/pocket-id.nix
     ./tiny-auth/tiny-auth.nix
     ./minecraft/minecraft.nix
-    ./pocket-id/pocket-id.nix
   ];
 }
