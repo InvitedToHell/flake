@@ -40,6 +40,11 @@ in
       network.history_sync.max_initial_conversations = 30;
 
       bridge = {
+        double_puppet = {
+          server_map = {};
+          allow_discovery = true;
+        };
+
         cleanup_on_logout = {
           enabled = true;
           manual = {
